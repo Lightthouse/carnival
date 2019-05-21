@@ -5,25 +5,60 @@
     <title>@yield('title') </title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
-        header{
-            height :200px;
-            background-image:url(http://adicts.wapsite.me/1con/header/header_1.png);
-            background-size: contain;
-        }
-        footer{
-            height: 150px;
-            background-image: url(https://smhttp-ssl-43233.nexcesscdn.net/media/catalog/product/cache/1/image/750x550/602f0fa2c1f0d1ba5e241f914e856ff9/m/e/mens-brooks-ghost-11-nyc-pop-art-running-shoe-color-blackgreenpop-regular-width-size-8-609465385063-01.2590_1.jpg);
-            background-size: contain;
+        html{
+            height: 100%;
         }
 
-        main{
-            display: flex;
-            justify-content: center;
-            justify-items: center;
-        }
-        .main{
+        body{
+            height: 100%;
             display: flex;
             flex-direction: column;
+        }
+        .header{
+            flex: 0 0 auto;
+            display: flex;
+            align-content: center;
+            align-items: center;
+            justify-content: center;
+            height: 200px;
+            background: #0f0c29;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);   /*Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #24243e, #302b63, #0f0c29);/*  W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            color: white;
+        }
+       .footer{
+            flex: 0 0 auto;
+            display: flex;
+            align-content: center;
+            align-items: center;
+            justify-content: center;
+            height: 150px;
+            background: #bdc3c7;  /*fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #2c3e50, #bdc3c7);   /*Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #2c3e50, #bdc3c7);  /*W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            color: white;
+        }
+
+        .main{
+            flex: 1 0 auto;
+            display: flex;
+            align-items: center;
+            align-content: center;
+            min-height: 571px;
+
+            /*display: flex;
+            justify-content: center;
+            justify-items: center;*/
+        }
+        .gem-img{
+            display: inline;
+            height: 30px;
+        }
+        .people-list{
+            height: 40%;
+        }
+        label{
+
         }
 
 
@@ -31,13 +66,17 @@
 </head>
 
 <body>
-<header></header>
+<header class="header">
+    header
+</header>
 <main>
     <div class="main">
         @yield('content')
     </div>
 </main>
-<footer></footer>
+<footer class="footer">
+    footer
+</footer>
 </body>
 
 </html>

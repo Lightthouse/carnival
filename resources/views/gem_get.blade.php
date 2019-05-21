@@ -4,7 +4,7 @@
 @section('content')
     <ul>
         @foreach($gems as $gem)
-            <li>{{$gem->parameter->name}}</li>
+            <li><img src="{{$gem->parameter->img}}" alt="gem" class="gem-img">{{$gem->parameter->name}}</li>
         @endforeach
     </ul>
 @endsection
