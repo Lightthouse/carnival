@@ -2,6 +2,18 @@
 @section('title','гном')
 
 @section('content')
+    <label>
+        <b>Добытые камни</b>
+        <ul>
+            @foreach ($gnome->gems as $gem)
+                <li>
+                    <img src="{{$gem->parameter->img}}" alt="gem" class="gem-img">
+                    {{$gems = $gem->parameter->name}}
+                </li>
+            @endforeach
+        </ul>
+    </label>
+
     <img src="https://i.pinimg.com/originals/76/20/eb/7620eb8a9e83d6d059430191b9e0c044.jpg" alt="gnome" class="gnome-pict">
     @empty($gnome)
         <h1>нет гномов с данным id</h1>
