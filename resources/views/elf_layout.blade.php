@@ -33,6 +33,10 @@
             font-weight: bold;
             display: block;
         }
+        .gem-img{
+            display: inline;
+            height: 30px;
+        }
     </style>
 </head>
 

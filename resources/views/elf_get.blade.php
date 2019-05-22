@@ -2,6 +2,18 @@
 @section('title','эльф')
 
 @section('content')
+    <label>
+        <b>Предпочтения</b>
+        <ul>
+            @foreach ($elf->parameters as $pref)
+                <li>
+                    <img src="{{$pref->img}}" alt="gem" class="gem-img">
+                    {{$pref->name}}
+                </li>
+            @endforeach
+        </ul>
+    </label>
+
 {{--
     <img src="https://cdn3.artstation.com/p/assets/images/images/002/064/903/large/si-woo-kim-elf.jpg?1456764267" alt="elf" class="elf-pict">
 --}}

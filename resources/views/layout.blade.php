@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <title>@yield('title') </title>
@@ -45,10 +45,7 @@
             align-items: center;
             align-content: center;
             min-height: 571px;
-
-            /*display: flex;
             justify-content: center;
-            justify-items: center;*/
         }
         .gem-img{
             display: inline;
@@ -57,10 +54,6 @@
         .people-list{
             height: 40%;
         }
-        label{
-
-        }
-
 
     </style>
 </head>
