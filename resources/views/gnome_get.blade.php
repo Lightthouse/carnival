@@ -5,10 +5,11 @@
     <label>
         <b>Добытые камни</b>
         <ul>
-            @foreach ($gnome->gems as $gem)
+            @foreach (gnome_gems($gnome) as $gem)
                 <li>
-                    <img src="{{$gem->parameter->img}}" alt="gem" class="gem-img">
-                    {{$gems = $gem->parameter->name}}
+                    <b>x{{$gem['count']}}</b>
+                    <img src="{{$gem['gem_img']}}" alt="gem" class="gem-img">
+                    {{$gem['gem_name']}}
                 </li>
             @endforeach
         </ul>
