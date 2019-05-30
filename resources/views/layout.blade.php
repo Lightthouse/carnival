@@ -54,6 +54,13 @@
         .people-list{
             height: 40%;
         }
+/*        .gem-form{
+            display: flex;
+            flex-direction: column;
+        }*/
+        li{
+            cursor:pointer;
+        }
 
     </style>
 </head>

@@ -2,17 +2,21 @@
 @section('title','эльф')
 
 @section('content')
-    <label>
-        <b>Предпочтения</b>
-        <ul>
-            @foreach ($elf->parameters as $pref)
-                <li>
-                    <img src="{{$pref->img}}" alt="gem" class="gem-img">
-                    {{$pref->name}}
-                </li>
-            @endforeach
-        </ul>
-    </label>
+    @empty($elf)
+        <h1>нет эльфов с данным id</h1>
+        @else
+            <label>
+                <b>Предпочтения</b>
+                <ul>
+                    @foreach ($elf->parameters as $pref)
+                        <li>
+                            <img src="{{$pref->img}}" alt="gem" class="gem-img">
+                            {{$pref->name}}
+                        </li>
+                    @endforeach
+                </ul>
+            </label>
+        @endempty
 
 {{--
     <img src="https://cdn3.artstation.com/p/assets/images/images/002/064/903/large/si-woo-kim-elf.jpg?1456764267" alt="elf" class="elf-pict">
@@ -29,11 +33,15 @@
             <span class="marker-text">Email</span>
             {{$elf->email}}
             <hr>
-            <span class="marker-text">Пароль</span>
-            {{$elf->password}}
-            <hr>
             <span class="marker-text">Дата регистрации</span>
             {{$elf->created_at}}
+            <hr>
+            <span class="marker-text">Статус в системе</span>
+            @isset($elf->deleted_at)
+                <span class="text-danger">Удален {{$elf->deleted_at}}</span>
+            @else
+                <span class="text-success">Активен {{$elf->deleted_at}}</span>
+            @endisset
         </fieldset>
     @endempty
 
