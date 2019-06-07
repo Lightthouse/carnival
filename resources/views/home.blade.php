@@ -10,7 +10,7 @@
 --}}
         <ul>
             @foreach($gnomes as $gnome)
-                <li>{{$gnome->name}}</li>
+                <li><a href="gnomes/{{$gnome->id}}">{{$gnome->name}}</a></li>
             @endforeach
         </ul>
     </label>
@@ -23,10 +23,9 @@
 --}}
         <ul>
             @foreach($elves as $elf)
-                <li>{{$elf->name}}</li>
+                <li><a href="elves/{{$elf->id}}">{{$elf->name}}</a></li>
             @endforeach
         </ul>
     </label>
-
 
 @endSection

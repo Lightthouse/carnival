@@ -6,8 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Elf extends Model
 {
-    public function parameters()
+    public function preference()
     {
-        return $this->belongsToMany(Parameter::class);
+        return $this->hasMany(Preference::class);
     }
+    public function gems(){
+        return $this->hasMany(Gem::class);
+    }
+
 }

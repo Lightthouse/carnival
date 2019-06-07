@@ -8,17 +8,6 @@
     require_once "../config/router.php";
     require_once "../config/container.php";
 
-/*   $gem = \ESoft\Model\Gem::find('1');
-    $gnome = \ESoft\Model\Gnome::find('3');
-    $gems =['red','blue','beer','salat','green','red','red','blue'];
-
-    $gems_params = [
-        ['red','url',3],
-    ];
-
-    var_dump(gnome_gems($gnome));
-    exit();*/
-
 $serverRequest = \GuzzleHttp\Psr7\ServerRequest::fromGlobals();
 
 $matcher = $routerContainer->getmatcher();

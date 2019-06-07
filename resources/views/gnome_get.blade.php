@@ -8,7 +8,7 @@
         <label>
             <b>Добытые камни</b>
             <ul>
-                @foreach (gnome_gems($gnome) as $gem)
+                @foreach (mined_gems($gnome->gems) as $gem)
                     <li>
                         <b>x{{$gem['count']}}</b>
                         <img src="{{$gem['gem_img']}}" alt="gem" class="gem-img">

@@ -6,16 +6,29 @@
         <h1>нет эльфов с данным id</h1>
         @else
             <label>
-                <b>Предпочтения</b>
+                <b>Полученные</b>
                 <ul>
-                    @foreach ($elf->parameters as $pref)
+                    @foreach (mined_gems($gems) as $gem)
                         <li>
-                            <img src="{{$pref->img}}" alt="gem" class="gem-img">
-                            {{$pref->name}}
+                            <b>x{{$gem['count']}}</b>
+                            <img src="{{$gem['gem_img']}}" alt="gem" class="gem-img">
+                            {{$gem['gem_name']}}
                         </li>
                     @endforeach
                 </ul>
             </label>
+            <label>
+                <b>Предпочтения</b>
+                <ul>
+                    @foreach ($preferences as $pref)
+                        <li>
+                            <img src="{{$pref->parameter->img}}" alt="gem" class="gem-img">
+                            {{$pref->parameter->name}} - {{$pref->prefer}}%
+                        </li>
+                    @endforeach
+                </ul>
+            </label>
+
         @endempty
 
 {{--
@@ -40,7 +53,7 @@
             @isset($elf->deleted_at)
                 <span class="text-danger">Удален {{$elf->deleted_at}}</span>
             @else
-                <span class="text-success">Активен {{$elf->deleted_at}}</span>
+                <span class="text-success">Активен </span>
             @endisset
         </fieldset>
     @endempty

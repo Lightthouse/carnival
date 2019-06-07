@@ -11,8 +11,9 @@ class Parameter extends Model
     {
         return $this->hasMany(Gem::class);
     }
-    public function elves()
+    public function preference()
     {
-        return $this->belongsToMany(Elf::class);
+        return $this->hasMany(Preference::class);
     }
+
 }

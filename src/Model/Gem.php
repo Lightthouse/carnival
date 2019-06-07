@@ -16,4 +16,8 @@ class Gem extends Model
     {
         return $this->belongsTo(Gnome::class);
     }
+    public function elf()
+    {
+        return $this->belongsTo(Elf::class);
+    }
 }
