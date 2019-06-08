@@ -39,6 +39,15 @@
                 @else
                 <span class="text-success">Активен {{$gnome->deleted_at}}</span>
             @endisset
+            <hr>
+            <label>
+                <b>Мастер Гном</b>
+                @if($gnome->master_gnome)
+                    <input class="checkbox" type="checkbox" name="master-check" disabled checked>
+                @else
+                    <input class="checkbox" type="checkbox" name="master-check" disabled>
+                @endif
+            </label>
         </fieldset>
     @endempty
 @endSection

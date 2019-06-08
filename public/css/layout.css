@@ -1,0 +1,55 @@
+html{
+    height: 100%;
+}
+body{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.header{
+    flex: 0 0 auto;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    background: #0f0c29;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);   /*Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #24243e, #302b63, #0f0c29);/*  W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: white;
+}
+.footer{
+    flex: 0 0 auto;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+    background: #bdc3c7;  /*fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2c3e50, #bdc3c7);   /*Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2c3e50, #bdc3c7);  /*W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: white;
+}
+
+.main{
+    flex: 1 0 auto;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    min-height: 571px;
+    justify-content: center;
+}
+.gem-img{
+    display: inline;
+    height: 30px;
+}
+.people-list{
+    height: 40%;
+}
+/*        .gem-form{
+            display: flex;
+            flex-direction: column;
+        }*/
+li{
+    cursor:pointer;
+}

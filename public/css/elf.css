@@ -1,0 +1,40 @@
+.header{
+    height: 200px;
+    background: #134E5E;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #71B280, #134E5E);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #71B280, #134E5E); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.footer{
+    height: 150px;
+    background: #16222A;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #3A6073, #16222A);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #3A6073, #16222A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.main{
+    background-image: url(https://cdn.pixabay.com/photo/2017/07/13/13/28/paper-2500380_960_720.jpg);
+    background-size: cover;
+    justify-content: space-around;
+    display: flex;
+    place-items: center;
+}
+.elf-pict{
+    max-height: 600px;
+    margin: 0 30px;
+}
+
+.marker-text{
+    font-weight: bold;
+    display: block;
+}
+.gem-img{
+    display: inline;
+    height: 30px;
+}
+.prefer_change{
+    cursor:pointer;
+}
+
+.prefer_input{
+    width: 40px;
+}
+

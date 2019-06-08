@@ -5,10 +5,26 @@
     @empty($elf)
         <h1>нет эльфов с данным id</h1>
         @else
+        <form method="post">
+            <label>
+                <b>Назначенные</b>
+                <ul >
+                    @foreach ($unconfirmed_gems as $gem)
+                        <li>
+                            <input type="checkbox" name="{{$gem->id}}">
+                            <img src="{{$gem->parameter->img}}" alt="gem" class="gem-img">
+                            {{$gem->parameter->name}}
+                            {{$gem->created_at}}
+                        </li>
+                    @endforeach
+                </ul>
+                <button type="submit" class="btn btn-success" name="confirm_form">подтвердить</button>
+            </label>
+        </form>
             <label>
                 <b>Полученные</b>
-                <ul>
-                    @foreach (mined_gems($gems) as $gem)
+                <ul >
+                    @foreach (mined_gems($confirmed_gems) as $gem)
                         <li>
                             <b>x{{$gem['count']}}</b>
                             <img src="{{$gem['gem_img']}}" alt="gem" class="gem-img">
@@ -17,20 +33,23 @@
                     @endforeach
                 </ul>
             </label>
-            <label>
-                <b>Предпочтения</b>
-                <ul>
-                    @foreach ($preferences as $pref)
-                        <li>
-                            <img src="{{$pref->parameter->img}}" alt="gem" class="gem-img">
-                            {{$pref->parameter->name}} - {{$pref->prefer}}%
-                        </li>
-                    @endforeach
-                </ul>
-            </label>
-
+            <form method="post">
+                <label>
+                    <b class="prefer_change">Предпочтения</b>
+                    <ul class="prefer_list">
+                        @foreach ($preferences as $pref)
+                            <li>
+                                <img src="{{$pref->parameter->img}}" alt="gem" class="gem-img">
+                                <span class="gems_names">{{$pref->parameter->name}}</span> -
+                                <span class="prefer_value">{{$pref->prefer}}</span>%
+                            </li>
+                        @endforeach
+                    </ul>
+                    <button type="button" class="prefer_change btn btn-info">изменить</button>
+                    <button type="submit" class=" btn btn-success" name="prefer_form">сохранить</button>
+                </label>
+            </form>
         @endempty
-
 {{--
     <img src="https://cdn3.artstation.com/p/assets/images/images/002/064/903/large/si-woo-kim-elf.jpg?1456764267" alt="elf" class="elf-pict">
 --}}
