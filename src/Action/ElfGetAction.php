@@ -37,7 +37,7 @@ class ElfGetAction
                  unset($data[self::POST_CHANGE_CONFIRM]);
                   foreach(array_keys($data) as $gem){
                       $cofirm = Gem::find($gem);
-                      $cofirm->confirmed = true;
+                      $cofirm->confirmed_at = date("Y-m-d H:i:s");
                       $cofirm->update();
                   }
                 }
@@ -48,8 +48,8 @@ class ElfGetAction
 
             }
             $elf = Elf::find($id);
-            $unconfirmed_gems = Gem::where([['elf_id','=',$id],['confirmed','=','0']])->get();
-            $confirmed_gems = Gem::where([['elf_id','=',$id],['confirmed','=','1']])->get();
+            $unconfirmed_gems = Gem::where([['elf_id','=',$id],['confirmed_at','=',null]])->get();
+            $confirmed_gems = Gem::where([['elf_id','=',$id],['confirmed_at','<>',null]])->get();
 
             return view('elf_get',[
                 'elf' => $elf,

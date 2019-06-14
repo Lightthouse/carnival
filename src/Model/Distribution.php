@@ -10,8 +10,9 @@ class Distribution
         $gems = \ESoft\Model\Gem::where('elf_id','=',null)->get();
 
         foreach ($gems as $gem) {
-            $maxPref = \ESoft\Model\Preference::where('parameter_id','=',$gem->parameter_id)->max('prefer');
-            $prefer = \ESoft\Model\Preference::where([['prefer','=',$maxPref],['parameter_id','=',$gem->parameter_id]])->get()->first();
+            $gem_name = $gem->parameter_id;
+            $maxPref = \ESoft\Model\Preference::where('parameter_id','=',$gem_name)->max('prefer');
+            $prefer = \ESoft\Model\Preference::where([['prefer','=',$maxPref],['parameter_id','=',$gem_name]])->get()->first();
             $gem->elf_id = $prefer->elf_id;
             $gem->save();
 
@@ -19,7 +20,22 @@ class Distribution
 
     }
     public static function moodDist(){
-        $gems = \ESoft\Model\Gem::where('elf_id','=',null)->get();
+
+        $week_ago = date("Y-m-d H:i:s",time()-60*60*24*7);
+
+        $all_elves = \ESoft\Model\Elf::all();
+
+        foreach($all_elves as $elf){
+            $last_time_gem = $elf->gems()->orderBy('created_at', 'desc')->first()->created_at;
+            $gem = \ESoft\Model\Gem::where('elf_id','=',null)->first();
+
+           // if (!isset($gem))break;////////////////////////////////////////////////////////
+
+            if ($last_time_gem > $week_ago){
+                $gem->elf_id = $elf->id;
+                $gem->save();
+            }
+        }
 
     }
     public static function equalDist(){

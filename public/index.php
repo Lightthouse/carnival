@@ -8,18 +8,6 @@
     require_once "../config/router.php";
     require_once "../config/container.php";
 
-/*$elf = \ESoft\Model\Elf::find(1);
-$prefereces = \ESoft\Model\Preference::where('elf_id','=',1)->get()->first();
-$prefereces->prefer = 777;
-$prefereces->update();
-foreach($prefereces as $pref){
-    $pref->prefer = 55;
-    $pref->update();
-}
-
-
-var_dump($prefereces->first()->prefer);
-exit();*/
 
 $serverRequest = \GuzzleHttp\Psr7\ServerRequest::fromGlobals();
 

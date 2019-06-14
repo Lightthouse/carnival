@@ -17,7 +17,7 @@ class Preference extends Model
 
     public static function set_elf(Elf $elf){
         $gems = Parameter::all();
-        $prefer_percent = 100/count($gems);
+        $prefer_percent = 100/count($gems); // not accurate
 
         foreach($gems as $gem){
             $pref = new Preference();

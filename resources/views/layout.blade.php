@@ -20,5 +20,5 @@
     footer
 </footer>
 </body>
-
+    @yield('javascript')
 </html>

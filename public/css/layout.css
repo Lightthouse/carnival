@@ -46,10 +46,20 @@ body{
 .people-list{
     height: 40%;
 }
-/*        .gem-form{
-            display: flex;
-            flex-direction: column;
-        }*/
-li{
+
+.gem_li{
     cursor:pointer;
+}
+.filter_form, .filter_label{
+    display: flex;
+    flex-direction: column;
+}
+.filter_form,.filter_button{
+    align-self: start;
+}
+.filter_commit{
+    width: 60%;
+}
+.hide_form{
+    visibility: hidden;
 }
