@@ -3,20 +3,55 @@
 
 @section('content')
     <label>
-        <h2>Распределение драгоценностей</h2>
-        <form >
-            <ul>
-                @foreach($gems as $gem)
+        <h2>Нераспределенные драгоценностей</h2>
+        <form method="post">
+            <div class="form_distribution">
+                <div class="distribution_parameters">
+                    <span>недельная радость, %</span><input type="number" disabled value="0" name="distribute_mood">
+                    <span>наибольшее предпочтени, %</span><input type="number" disabled value="0" name="distribute_preference">
+                    <span>равное количество, %</span><input type="number" disabled value="0" name="distribute_count">
+                </div>
+                <ul>
+                    @foreach($gems_no_elf as $gem)
+                        <li>
+                            <img src="{{$gem->parameter->img}}" alt="gem" class="gem-img">
+                            {{$gem->parameter->name}}
+                            <b>{{$gem->gnome->name}}</b>
+                            {{$gem->created_at}}
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+            <button type="button" class="btn btn-info change_distribution_button" >изменить</button>
+            <button type="submit" class="btn btn-success" name="distribute_form">распределить</button>
+        </form>
+    </label>
+    <label>
+        <h2>Неподтвержденные драгоценностей</h2>
+        <form method="post">
+            <ul >
+                @foreach($gems_no_confirm as $gem)
                     <li>
                         <img src="{{$gem->parameter->img}}" alt="gem" class="gem-img">
                         {{$gem->parameter->name}}
-                        <b>{{$gem->gnome->name}}</b>
+                        <b>{{$gem->elf->name}}</b>
                         {{$gem->created_at}}
+
+                        <select class="hide_element" name="{{$gem->id}}">
+                            <option value="">выберите эльфа</option>
+                            @foreach($elves as $elf)
+                                <option value="{{$elf->id}}" >{{$elf->name}}</option>
+                            @endforeach
+                        </select>
                     </li>
                 @endforeach
             </ul>
-            <button type="submit" class="btn btn-primary">распределить</button>
+            <button type="button" class="btn btn-info change_elf_button">изменить</button>
+            <button type="submit" class="btn btn-success" name="change_elf_form">сохранить</button>
         </form>
     </label>
+@endsection
 
+@section('javascript')
+    <script src="/js/distribute.js"></script>
 @endsection

@@ -50,7 +50,7 @@ body{
 .gem_li{
     cursor:pointer;
 }
-.filter_form, .filter_label{
+.filter_form, .filter_label, .distribution_parameters{
     display: flex;
     flex-direction: column;
 }
@@ -60,6 +60,10 @@ body{
 .filter_commit{
     width: 60%;
 }
-.hide_form{
+.hide_element{
     visibility: hidden;
+}
+
+.form_distribution{
+    display: flex;
 }

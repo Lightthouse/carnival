@@ -4,6 +4,7 @@ namespace ESoft\Action;
 
 use ESoft\Model\Elf;
 use ESoft\Model\Gnome;
+use ESoft\Model\Preference;
 use GuzzleHttp\Psr7\ServerRequest;
 use ESoft\Hash\HashInterface;
 use ESoft\Randomizer\RandomizerInterface;
@@ -68,6 +69,8 @@ class SignUpAction
                     $elf->email = $data['email'];
                     $elf->created_at = date('Y-m-d H:i:s');
                     $elf->save();
+
+                   Preference:: set_elf($elf);
                     header('Location: /');
                 }
                 catch (ValidationException $exception){

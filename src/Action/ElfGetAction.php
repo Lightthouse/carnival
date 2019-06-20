@@ -36,9 +36,9 @@ class ElfGetAction
               elseif (array_key_exists(self::POST_CHANGE_CONFIRM,$data)){
                  unset($data[self::POST_CHANGE_CONFIRM]);
                   foreach(array_keys($data) as $gem){
-                      $cofirm = Gem::find($gem);
-                      $cofirm->confirmed_at = date("Y-m-d H:i:s");
-                      $cofirm->update();
+                      $confirm = Gem::find($gem);
+                      $confirm->confirmed_at = date("Y-m-d H:i:s");
+                      $confirm->update();
                   }
                 }
               else{

@@ -3,7 +3,7 @@
 
 @section('content')
 
-    <form method="post" class="hide_form filter_form">
+    <form method="post" class="hide_element filter_form">
         <label class="filter_label">
             назначены указанному эльфу
             <select name="filter_elf">

@@ -11,7 +11,10 @@ $router->post('elf_prefers','/elves/{id}',\ESoft\Action\ElfGetAction::class);
 
 $router->get('gem_get','/gems',\ESoft\Action\GemGetAction::class);
 $router->post('gem_get.post','/gems',\ESoft\Action\GemGetAction::class);
+
 $router->get('gem_distribute','/gemsDistribute',\ESoft\Action\GemDistributeAction::class);
+$router->post('gem_distribute.post','/gemsDistribute',\ESoft\Action\GemDistributeAction::class);
+
 $router->get('gem_add','/gemsAdd',\ESoft\Action\GemAddAction::class);
 $router->post('gem_add.post','/gemsAdd',\ESoft\Action\GemAddAction::class);
 

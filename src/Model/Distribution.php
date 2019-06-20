@@ -6,8 +6,8 @@ namespace ESoft\Model;
 
 class Distribution
 {
-    public static function preferenceDist(){
-        $gems = \ESoft\Model\Gem::where('elf_id','=',null)->get();
+    public static function preferenceDist(int $amount){
+        $gems = \ESoft\Model\Gem::where('elf_id','=',null)->take($amount)->get();
 
         foreach ($gems as $gem) {
             $gem_name = $gem->parameter_id;
@@ -19,11 +19,10 @@ class Distribution
         }
 
     }
-    public static function moodDist(){
+    public static function moodDist(int $amount){
 
         $week_ago = date("Y-m-d H:i:s",time()-60*60*24*7);
-
-        $all_elves = \ESoft\Model\Elf::all();
+        $all_elves = \ESoft\Model\Elf::all()->take($amount);
 
         foreach($all_elves as $elf){
             $last_time_gem = $elf->gems()->orderBy('created_at', 'desc')->first()->created_at;
@@ -38,9 +37,9 @@ class Distribution
         }
 
     }
-    public static function equalDist(){
+    public static function equalDist(int $amount){
         $elves = \ESoft\Model\Elf::all();
-        $gems = Gem::where('elf_id','=',null)->get();
+        $gems = Gem::where('elf_id','=',null)->take($amount)->get();
 
         $elves_arr =[];
 
