@@ -35,6 +35,7 @@
             </label>
             <form method="post">
                 <label>
+                    <b>@if($preferences_sum_error){{$preferences_sum_error}}@endif <br></b>
                     <b class="prefer_change">Предпочтения</b>
                     <ul class="prefer_list">
                         @foreach ($preferences as $pref)

@@ -7,7 +7,7 @@ let change_prefer_text = document.querySelector('b.prefer_change');
 
 //change_prefer_button.onclick = change_prefer;
 //change_prefer_text.onclick = change_prefer;
-change_prefer_text.addEventListener('click', add_inputs);
+//change_prefer_text.addEventListener('click', add_inputs);
 change_prefer_button.addEventListener('click', add_inputs);
 
 /*console.log(prefers[0].childNodes[2]);

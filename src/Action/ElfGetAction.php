@@ -14,24 +14,26 @@ class ElfGetAction
 
     public function __invoke(ServerRequest $request){
         $id = $request->getAttribute('id');
+        $preferences_sum_error = false;
 
         if(ctype_digit ($id)){
             $preferences = \ESoft\Model\Preference::where('elf_id','=',$id)->get();
             $data = $request->getParsedBody();
 
             if($request->getMethod() == 'POST') {
-                /*
-               * TODO
-               * data type check
-               * data the sum check
-               * plural condition
-              */
-              if(array_key_exists(self::POST_CHANGE_PREFER,$data)){
 
-                  foreach($preferences as $prefer){
-                      $prefer->prefer = $data[$prefer->parameter->name];
-                      $prefer->update();
+              if(array_key_exists(self::POST_CHANGE_PREFER,$data)){
+                  unset($data[self::POST_CHANGE_PREFER]);
+                  if(array_sum ($data) != 100){
+                      $preferences_sum_error = 'сумма предпочтений должна быть 100%';
                   }
+                  else{
+                      foreach($preferences as $prefer){
+                          $prefer->prefer = $data[$prefer->parameter->name];
+                          $prefer->update();
+                      }
+                  }
+
               }
               elseif (array_key_exists(self::POST_CHANGE_CONFIRM,$data)){
                  unset($data[self::POST_CHANGE_CONFIRM]);
@@ -42,8 +44,7 @@ class ElfGetAction
                   }
                 }
               else{
-                  var_dump('wrong data');
-                  exit();
+                  return view('not_found');
               }
 
             }
@@ -55,7 +56,8 @@ class ElfGetAction
                 'elf' => $elf,
                 'preferences' => $preferences,
                 'unconfirmed_gems' => $unconfirmed_gems,
-                'confirmed_gems' => $confirmed_gems
+                'confirmed_gems' => $confirmed_gems,
+                'preferences_sum_error' => $preferences_sum_error,
             ]);
         }
         else{

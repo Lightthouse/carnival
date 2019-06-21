@@ -53,8 +53,7 @@ class GemDistributeAction
                 }
             }
             else{
-                var_dump('wrong data');
-                exit();
+                return view('not_found');
             }
 
         }

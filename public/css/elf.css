@@ -30,9 +30,6 @@
     display: inline;
     height: 30px;
 }
-.prefer_change{
-    cursor:pointer;
-}
 
 .prefer_input{
     width: 40px;
