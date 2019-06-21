@@ -4,11 +4,12 @@
 @section('content')
     <label>
         <h2>Нераспределенные драгоценностей</h2>
+        <b>@if($post_request_error){{$post_request_error}}@endif</b>
         <form method="post">
             <div class="form_distribution">
                 <div class="distribution_parameters">
-                    <span>недельная радость, %</span><input type="number" disabled value="0" name="distribute_mood">
                     <span>наибольшее предпочтени, %</span><input type="number" disabled value="0" name="distribute_preference">
+                    <span>недельная радость, %</span><input type="number" disabled value="0" name="distribute_mood">
                     <span>равное количество, %</span><input type="number" disabled value="0" name="distribute_count">
                 </div>
                 <ul>
@@ -23,7 +24,7 @@
                 </ul>
             </div>
             <button type="button" class="btn btn-info change_distribution_button" >изменить</button>
-            <button type="submit" class="btn btn-success" name="distribute_form">распределить</button>
+            <button type="submit" class="btn btn-success commit_distribution_button" name="distribute_form" disabled>распределить</button>
         </form>
     </label>
     <label>

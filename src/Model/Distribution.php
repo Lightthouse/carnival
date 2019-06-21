@@ -6,7 +6,7 @@ namespace ESoft\Model;
 
 class Distribution
 {
-    public static function preferenceDist(int $amount){
+    public static function preferenceDist($amount){
         $gems = \ESoft\Model\Gem::where('elf_id','=',null)->take($amount)->get();
 
         foreach ($gems as $gem) {
@@ -19,7 +19,7 @@ class Distribution
         }
 
     }
-    public static function moodDist(int $amount){
+    public static function moodDist($amount){
 
         $week_ago = date("Y-m-d H:i:s",time()-60*60*24*7);
         $all_elves = \ESoft\Model\Elf::all()->take($amount);
@@ -37,7 +37,7 @@ class Distribution
         }
 
     }
-    public static function equalDist(int $amount){
+    public static function equalDist($amount){
         $elves = \ESoft\Model\Elf::all();
         $gems = Gem::where('elf_id','=',null)->take($amount)->get();
 

@@ -18,29 +18,28 @@ class GemDistributeAction
         $gems_no_elf = Gem::where('elf_id','=',null)->get();
         $gems_no_confirm = Gem::where([['elf_id','<>',null],['confirmed_at','=',null]])->get();
         $elves = Elf::all();
+        $post_request_error =false;
 
         if( $request->getMethod() == 'POST'){
             $data = $request->getParsedBody();
 
             if(array_key_exists(self::DISTRIBUTE_FORM,$data)){
-                $gems_amount = count($gems_no_elf);
+                if($data['distribute_preference'] + $data['distribute_mood'] + $data['distribute_count'] != 100){
+                    $post_request_error = 'сумма процентов распределения должна быть 100%';
+                }
+                else{
 
-                $preferenceDist = $gems_amount * $data['distribute_preference'] / 100;
-                $moodDist = $gems_amount * $data['distribute_mood'] / 100;
-                $equalDist = $gems_amount * $data['distribute_count'] / 100;
+                    $gems_amount = count($gems_no_elf);
 
-                $arr = [
-                    'preferenceDist'=>$preferenceDist,
-                    'moodDist'=>$moodDist,
-                    'equalDist'=>$equalDist,
-                ];
-                var_dump($arr);
-                exit();
-               /*
-               Distribution::preferenceDist(1);
-               Distribution::moodDist(1);
-               Distribution::equalDist(1);
-               */
+                    $preferenceDist = round($gems_amount * $data['distribute_preference'] / 100);
+                    $moodDist = round($gems_amount * $data['distribute_mood'] / 100);
+                    $equalDist = $gems_amount - ($preferenceDist + $moodDist);
+
+                    Distribution::preferenceDist($preferenceDist);
+                    Distribution::moodDist($moodDist);
+                    Distribution::equalDist($equalDist);
+                }
+
 
             }
             elseif(array_key_exists(self::CHANGE_ELF_FORM,$data)){
@@ -59,12 +58,14 @@ class GemDistributeAction
             }
 
         }
+        $gems_no_elf = Gem::where('elf_id','=',null)->get();
         $gems_no_confirm = Gem::where([['elf_id','<>',null],['confirmed_at','=',null]])->get();
 
         return view('gem_distribute',[
             'gems_no_elf' => $gems_no_elf,
             'gems_no_confirm' => $gems_no_confirm,
-            'elves' => $elves
+            'elves' => $elves,
+            'post_request_error' => $post_request_error
         ]);
     }
 }
