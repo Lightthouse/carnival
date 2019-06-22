@@ -11,6 +11,17 @@ use GuzzleHttp\Psr7\ServerRequest;
 class GemGetAction
 {
     public function __invoke(ServerRequest $request){
+        session_start();
+        $gnome_access = isset($_SESSION['gnome_id']) ;
+        $master_link = false;
+
+        if($gnome_access){
+            if ($_SESSION['gnome_id'] != 0){
+                $master_link = (Gnome::find($_SESSION['gnome_id'])->master_gnome ==null)?false:true;
+            }
+
+        }
+
 
         $elves = Elf::all();
         $gnomes = Gnome::all();
@@ -36,7 +47,8 @@ class GemGetAction
             'gems' => $gems,
             'elves' => $elves,
             'gnomes' => $gnomes,
-            'parameters' => $parameters
+            'parameters' => $parameters,
+            'master_link' => $master_link,
         ]);
     }
 }

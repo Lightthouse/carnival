@@ -6,6 +6,7 @@ namespace ESoft\Action;
 use ESoft\Model\Distribution;
 use ESoft\Model\Elf;
 use ESoft\Model\Gem;
+use ESoft\Model\Gnome;
 use GuzzleHttp\Psr7\ServerRequest;
 
 class GemDistributeAction
@@ -14,6 +15,20 @@ class GemDistributeAction
     public const CHANGE_ELF_FORM = 'change_elf_form';
 
     public function __invoke(ServerRequest $request){
+        session_start();
+        $gnome_access = isset($_SESSION['gnome_id']) ;
+        $elf_access = isset($_SESSION['elf_id']);
+
+        if ( (!$gnome_access && !$elf_access) || ($_SESSION['gnome_id'] == 0)){
+            header('Location: /signIn');
+            exit();
+        }
+
+        $this_gnome = Gnome::find($_SESSION['gnome_id'])->master_gnome;
+        if($this_gnome == null){
+            header('Location: /');
+            exit();
+        }
 
         $gems_no_elf = Gem::where('elf_id','=',null)->get();
         $gems_no_confirm = Gem::where([['elf_id','<>',null],['confirmed_at','=',null]])->get();

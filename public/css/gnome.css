@@ -1,10 +1,21 @@
 .header{
+    flex: 0 0 auto;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    color: white;
     height :200px;
     background: #000000;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #e74c3c, #000000);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #e74c3c, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 .footer{
+    flex: 0 0 auto;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
     height: 150px;
     background: #232526;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
@@ -32,4 +43,10 @@
 .checkbox{
     height: 20px;
     width: 20px;
+}
+.hide_element{
+    display: none;
+}
+.links a{
+    color: white;
 }

@@ -6,6 +6,8 @@ $router = $routerContainer->getMap();
 $router->get('home','/',\ESoft\Action\HomeAction::class);
 
 $router->get('gnome_get','/gnomes/{id}',\ESoft\Action\GnomeGetAction::class);
+$router->post('gnome_get.post','/gnomes/{id}',\ESoft\Action\GnomeGetAction::class);
+
 $router->get('elf_get','/elves/{id}',\ESoft\Action\ElfGetAction::class);
 $router->post('elf_prefers','/elves/{id}',\ESoft\Action\ElfGetAction::class);
 

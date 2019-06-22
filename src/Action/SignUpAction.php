@@ -15,17 +15,16 @@ class SignUpAction
 {
     public $hash;
     public $validator;
-    public $randomizer;
 
-    public function __construct(HashInterface $hash, $validator,RandomizerInterface $randomizer){
+    public function __construct(HashInterface $hash, $validator){
         $this->hash = $hash;
         $this->validator = $validator;
-        $this->randomizer = $randomizer;
     }
 
     public function __invoke(ServerRequest $request){
         $bag = new \Illuminate\Support\MessageBag();
         $data = [];
+
         if($request->getMethod() == "POST"){
             $data = $request->getParsedBody();
 
@@ -33,8 +32,7 @@ class SignUpAction
 
                 try{
                     $this->validator->validate($data,[
-                        //'email' =>['required','email','unique:gnome,email'],
-                        'email' =>['required','email'],
+                        'email' =>['required','email','unique:gnomes,email','unique:elves,email'],
                         'password' =>['required','min:3','confirmed'],
                         'password_confirmation' =>['required','min:3']
                     ]);
@@ -57,8 +55,7 @@ class SignUpAction
 
                 try{
                     $this->validator->validate($data,[
-                        //'email' =>['required','email','unique:elf,email'],
-                        'email' =>['required','email'],
+                        'email' =>['required','email','unique:gnomes,email','unique:elves,email'],
                         'password' =>['required','min:3','confirmed'],
                         'password_confirmation' =>['required','min:3']
                     ]);

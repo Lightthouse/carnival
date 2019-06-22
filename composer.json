@@ -13,5 +13,8 @@
         "aura/di": "^3.4",
         "illuminate/validation": "^5.8",
         "pavliha/randomuser-generator": "^1.0"
+    },
+    "require-dev": {
+        "barryvdh/laravel-ide-helper": "^2.6"
     }
 }

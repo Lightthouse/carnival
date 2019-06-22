@@ -3,7 +3,7 @@
 
 @section('content')
     <label>
-        <h2>Нераспределенные драгоценностей</h2>
+        <h2>Нераспределенные драгоценности</h2>
         <b>@if($post_request_error){{$post_request_error}}@endif</b>
         <form method="post">
             <div class="form_distribution">
@@ -28,7 +28,7 @@
         </form>
     </label>
     <label>
-        <h2>Неподтвержденные драгоценностей</h2>
+        <h2>Неподтвержденные драгоценности</h2>
         <form method="post">
             <ul >
                 @foreach($gems_no_confirm as $gem)

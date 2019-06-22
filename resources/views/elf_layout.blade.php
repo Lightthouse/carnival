@@ -7,7 +7,11 @@
     <link rel="stylesheet" href="/css/elf.css">
 </head>
 <body>
-<header class="header"></header>
+<header class="header">
+    <div class="links ">
+        <a href="/">на главную</a>
+    </div>
+</header>
 <main>
     <div class="main">
         @yield('content')

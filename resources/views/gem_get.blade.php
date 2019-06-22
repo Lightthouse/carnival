@@ -31,24 +31,14 @@
                 @endforeach
             </select>
         </label>
-{{--        <label class="filter_label">
-            распределены указанным Мастер Гномом
-            <select name="filter_gnome">
-                @foreach($gnomes as $gnome)
-                    <option value="{{$gnome->id}}">{{$gnome->name}}</option>
-                @endforeach
-            </select>
-        </label>
-        <label class="filter_label">
-            дата назначения которых произошла раньше и/или позже указанной даты <input type="text" class="filter_input" name="filter_date_distribute">
-        </label>
-        <label class="filter_label">
-            дата подтверждения передачи которых произошла раньше и/или позже указанной даты <input type="text" class="filter_input" name="filter_date_confirm">
-        </label>--}}
         <button type="submit" class="btn btn-success filter_commit">применить</button>
     </form>
+
     <button type="button" class="btn btn-primary filter_button">фильтр</button>
     <label class="scroll_gem">
+        @if($master_link)
+            <div class="master_link"><a href="gemsDistribute">распределить драгоценности</a></div>
+        @endif
         <b>Добытые камни</b>
         <ul>
             @foreach ($gems as $gem)

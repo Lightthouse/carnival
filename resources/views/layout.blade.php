@@ -9,7 +9,12 @@
 
 <body>
 <header class="header">
-    header
+    <div class="links">
+        <a href="signUp">регистрация</a>
+        <a href="signIn">вход</a>
+        <span>/</span>
+        <a href="signIn?logout">выход</a>
+    </div>
 </header>
 <main>
     <div class="main">

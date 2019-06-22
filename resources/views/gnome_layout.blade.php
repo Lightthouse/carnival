@@ -7,12 +7,17 @@
     <link rel="stylesheet" href="/css/gnome.css">
 </head>
 <body>
-<header class="header"></header>
+<header class="header">
+    <div class="links">
+        <a href="/">на главную</a>
+    </div>
+</header>
 <main>
     <div class="main">
         @yield('content')
     </div>
 </main>
 <footer class="footer"></footer>
+<script src="/js/gnome.js"></script>
 </body>
 </html>

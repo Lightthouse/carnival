@@ -1,11 +1,17 @@
 .header{
+    /*flex: 0 0 auto;*/
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    color: white;
     height: 200px;
     background: #134E5E;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #71B280, #134E5E);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #71B280, #134E5E); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 .footer{
-    height: 150px;
+    min-height: 169px;
     background: #16222A;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #3A6073, #16222A);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #3A6073, #16222A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -34,4 +40,9 @@
 .prefer_input{
     width: 40px;
 }
-
+.hide_element{
+    display: none;
+}
+.links a {
+    color:white;
+}
