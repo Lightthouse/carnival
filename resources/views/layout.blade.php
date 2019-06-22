@@ -10,6 +10,10 @@
 <body>
 <header class="header">
     <div class="links">
+        <a href="/">главная</a>
+        <span>/</span>
+        <a href="gems">камни</a>
+        <br>
         <a href="signUp">регистрация</a>
         <a href="signIn">вход</a>
         <span>/</span>
